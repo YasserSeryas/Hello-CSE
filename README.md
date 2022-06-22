@@ -10,3 +10,7 @@ sudo apt install lsb-release ca-certificates apt-transport-https software-proper
 sudo add-apt-repository ppa:ondrej/php
 sudo apt install php8.1
 sudo apt install php8.1-mysql
+sudo apt install composer
+sudo apt-get install php-xml,curl
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt install nodejs
