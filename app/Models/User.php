@@ -42,13 +42,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function storeUser($request)
-    {   
-        $this->name = $request->name;
-        $this->email = $request->email;
-        $this->password = bcrypt($request->password);
-        $this->save();
+    // public function storeUser($request)
+    // {   
+    //     $this->name = $request->name;
+    //     $this->email = $request->email;
+    //     $this->password = bcrypt($request->password);
+    //     $this->save();
 
-        return $this;
-    }
+    //     return $this;
+    // }
 }

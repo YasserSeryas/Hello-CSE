@@ -13,12 +13,25 @@ use App\Http\Controllers\starController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/test',
-[starController::class,'index']);
+Route::get('/',
+[starController::class,'index'])->name('star.index');
+
+Route::get('/stars/create',
+[starController::class,'create'])->name('star.create');
+
+Route::post('/stars/store',
+[starController::class,'store'])->name('star.store');
+
+Route::get('/stars/{id}/edit',
+[starController::class,'edit'])->name('star.edit');
+
+Route::get('star/{id}/delete',
+[starController::class,'delete'])->name('star.delete');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
