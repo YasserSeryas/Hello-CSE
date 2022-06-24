@@ -13,13 +13,16 @@ use App\Http\Controllers\starController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('/',
+[starController::class,'home'])->name('home');
+
+Route::get('/StarList',
 [starController::class,'index'])->name('star.index');
 
+Route::get('/Star/{id}',
+[starController::class,'open'])->name('star');
+
+// Route Admin (Ajout, modification et suppression)
 Route::get('/stars/create',
 [starController::class,'create'])->name('star.create');
 

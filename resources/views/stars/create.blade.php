@@ -11,7 +11,7 @@
     <div class="container mt-5">
      <div class="row">
          <div class="col-md-6">
-            <form action="{{route('star.store')}}" method="post" enctype="multipart/form-data">
+            <form class="w-full max-w-sm" action="{{route('star.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <label for="">Nom</label>
                 <input 
@@ -44,6 +44,7 @@
                 </div>
            
               </form>
+             
          </div>
      </div>
  </div>
