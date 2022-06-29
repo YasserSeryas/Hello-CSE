@@ -27,12 +27,16 @@ class starController extends Controller
     // Fonction pour la modification et mise à jour d'une fiche de star 
     public function edit($id){
         $starEdit = star::findOrfail($id);
-        return view('stars.edit', compact($starEdit));
+        return view('stars.edit', compact('starEdit'));
     }
     public function update(Request $request,$id){
         $stars = star::findOrfail($id);
-
+        $stars -> nom = $request->get('nom');
+        $stars->prenom = $request->get('prenom');
+        $stars->description = $request->get('description');
+        
         $stars->save();
+        return redirect()->route('stars.index');
     }
    // Fonction pour la suppression d'une fiche de star
     public function delete($id){

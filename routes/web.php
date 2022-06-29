@@ -17,23 +17,27 @@ Route::get('/',
 [starController::class,'home'])->name('home');
 
 Route::get('/StarList',
-[starController::class,'index'])->name('star.index');
+[starController::class,'index'])->name('stars.index');
 
 Route::get('/Star/{id}',
 [starController::class,'open'])->name('star');
 
 // Route Admin (Ajout, modification et suppression)
 Route::get('/stars/create',
-[starController::class,'create'])->name('star.create');
+[starController::class,'create'])->name('stars.create');
 
 Route::post('/stars/store',
-[starController::class,'store'])->name('star.store');
+[starController::class,'store'])->name('stars.store');
 
 Route::get('/stars/{id}/edit',
-[starController::class,'edit'])->name('star.edit');
+[starController::class,'edit'])->name('stars.edit');
+
+Route::put('/stars/{id}/update',
+[starController::class,'update'])->name('stars.update');
+
 
 Route::get('star/{id}/delete',
-[starController::class,'delete'])->name('star.delete');
+[starController::class,'delete'])->name('stars.delete');
 
 
 Route::get('/dashboard', function () {

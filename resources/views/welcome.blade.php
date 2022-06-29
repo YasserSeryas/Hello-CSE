@@ -5,40 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stars</title>
-    <h1>Liste des Stars</h1>
+    
     <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css" />
-    <script>
-      
-    </script>
-        <div class="w-60 h-full shadow-md bg-white px-1 absolute"> 
-                     @if (!is_null($stars) && !empty($stars))
-                        @foreach ($stars as $star)
-                    <ul class="relative">
-                        <li class="relative"><a class="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out"href="{{ route('star',$star->id) }}">{{ $star->nom}} {{ $star->prenom}}</a></li>
-                    </ul>
-                        @endforeach
-                    @endif
-            
-                
-                
-            </div>
+ 
+        
 </head>
-<body class="bg-gray-100">
-    <main class="flex justify-center">
-        <section class="container p-8 grid grid-cols-3"> 
-           
-        
-        
-           
-           
-            
-               
-            
-             
+<body class="w-full h-full bg-[#fff]">
+      <div class="">
+      <div class="navbar bg-base-100 w-full shadow-lg">
+  <div class="navbar-start">
     
-   
-    </section>
-</main>
-    
-</body>
+  </div>
+  <div class="navbar-center">
+    <a class="btn btn-ghost normal-case text-xl">Accueil</a>
+  </div>
+  <div class="navbar-end">
+  
+    <button class="btn btn-ghost btn-circle">
+      <div class="indicator">
+       <p><a href="{{ route('stars.index') }}">Gestion</p>
+      </div>
+    </button>
+  </div>
+</div>
+         <div class="h-full w-full flex flex-col md:flex-row gap-8">
+            <ul class="menu menu-horizontal md:menu-vertical mt-4 lg:mt-0 shadow-lg w-full md:w-56 overflow-x-scroll h-20 md:h-screen">
+                  @if (!is_null($stars) && !empty($stars))
+                        @foreach ($stars as $star)
+                        <li class="hover:border-b-2 hover:border-b-red-500"><a href="{{route('star',$star->id)}}" class="whitespace-nowrap">{{ $star->nom}} {{ $star->prenom}}</a></li>
+                  @endforeach
+                  @endif
+            </ul>
+            <div class="h-full w-full flex flex-col md:flex-row gap-4 mt-10 px-8">
+                  
+                  <div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
 </html>

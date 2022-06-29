@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,34 +12,42 @@
    
    </head>
    
-   <body class="bg-gray-100 font-sans leading-normal tracking-normal">
-      <div class="flex md:flex-row-reverse flex-wrap">
-		
-		 <!--Main Content-->
-         <div class="w-full md:w-4/5 bg-gray-100">
-            <div class="container bg-gray-100 pt-16 px-6">
-               <div class="mx-auto shadow-lg flex flex-col rounded-lg overflow-hidden static">
-                  <img src="{{ asset('tmp/uploads/'.trim($starOpen->image, '"')) }}" height="300px" width="300px">
-                   <div class="p-8">
-                      <h2 class="text-black text-xl my-3">{{ $starOpen->nom}} {{ $starOpen->prenom}}</h2>
-                       <p>{{ $starOpen->description}}</p>
-                     </div>
-            </div>
-         </div>
-		 
-		 <!--Sidebar-->
-         <div class="w-full md:w-1/5 bg-gray-100  md:bg-gray-100 px-2 text-center fixed bottom-0 md:pt-8 md:top-0 md:left-0 h-16 md:h-screen md:border-r-4 md:border-gray-600">
-            <div class="md:relative mx-auto lg:float-right lg:px-6 ">
-               <ul class="list-reset flex flex-row md:flex-col text-center md:text-left">
+   <body class="w-full h-full bg-[#fff]">
+      <div class="">
+      <div class="navbar bg-base-100 w-full shadow-lg">
+  <div class="navbar-start">
+    
+  </div>
+  <div class="navbar-center">
+    <a class="btn btn-ghost normal-case text-xl">Profile Browser</a>
+  </div>
+  <div class="navbar-end">
+  
+    <button class="btn btn-ghost btn-circle">
+      <div class="indicator">
+       <p><a href="{{ route('stars.index') }}">Gestion</p>
+      </div>
+    </button>
+  </div>
+</div>
+         <div class="h-full w-full flex flex-col md:flex-row gap-8">
+            <ul class="menu menu-horizontal md:menu-vertical mt-4 lg:mt-0 shadow-lg w-full md:w-56 overflow-x-scroll h-20 md:h-screen">
                   @if (!is_null($stars) && !empty($stars))
                         @foreach ($stars as $star)
-                  <li ><a class="flex items-center text-sm py-4 px-6 h-12 overflow-scroll text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out" href="{{$star->id}}">{{ $star->nom}} {{ $star->prenom}}</a></li>
+                        <li class="hover:border-b-2 hover:border-b-red-500"><a href="{{$star->id}}" class="whitespace-nowrap">{{ $star->nom}} {{ $star->prenom}}</a></li>
                   @endforeach
                   @endif
-              
-               </ul>
+            </ul>
+            <div class="h-full w-full flex flex-col md:flex-row gap-4 mt-10 px-8">
+                  <img src="{{ asset('tmp/uploads/'.trim($starOpen->image, '"')) }}" class="w-48 h-48 object-fit"/>
+                  <div>
+                     <h2 class="font-bold text-md lg:text-lg">{{ $starOpen->nom}} {{ $starOpen->prenom}}</h2>
+                     <p>{{ $starOpen->description}}</p>
+                  </div>
+               </div>
             </div>
          </div>
       </div>
    </body>
+   
 </html>
