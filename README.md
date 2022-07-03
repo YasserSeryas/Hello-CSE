@@ -22,4 +22,4 @@ Pour lancer le serveur de dev, mettez vous à la racine du dossier et taper `php
 
     Dev :    php 8.1
     Tech :   HTML5, CSS3, Tailwind, Laravel,Composer version 2.3.7
-
+j'ai aussi utilisé Wamp pour le serveur de la base de donnée
