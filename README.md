@@ -1,16 +1,25 @@
 # Hello-CSE
-## Installation Instructions
-PHP version 8.1 installation instructions via WSl
-Step 1: Update Ubuntu System
-sudo apt update && sudo apt -y upgrade
-sudo systemctl reboot
-Step 2: Add Ondřej Surý PPA repository
-sudo apt update
-sudo apt install lsb-release ca-certificates apt-transport-https software-properties-common -y
-sudo add-apt-repository ppa:ondrej/php
-sudo apt install php8.1
-sudo apt install php8.1-mysql
-sudo apt install composer
-sudo apt-get install php-xml,curl
-curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-sudo apt install nodejs
+
+# Ce que c'est
+
+Il s'agit de la page de gestion de fiche de star
+
+# Spécifications
+
+Cette page affiche les fiches de star.
+On a besoin de s'inscrire et se connecter pour pouvoir ajouter et modifier l'annuaire `/register` pour s'inscrire, j'ai utilisé Laravel Breeze pour le login et le register
+
+# Configuration
+
+Pour installer l'application, faire `composer install` puis `php artisan key:generate`, `php artisan migrate ` pour générer la base de donnée. Configurer ensuite un fichier .env à partir de l'exemple.
+
+Pour lancer le serveur de dev, mettez vous à la racine du dossier et taper `php artisan serve`.
+
+# Auteur
+  * Youssouf Mohamed Yasser
+
+# Technologies
+
+    Dev :    php 8.1
+    Tech :   HTML5, CSS3, Tailwind, Laravel,Composer version 2.3.7
+

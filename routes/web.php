@@ -16,28 +16,29 @@ use App\Http\Controllers\starController;
 Route::get('/',
 [starController::class,'home'])->name('home');
 
+// Gestion 
 Route::get('/StarList',
-[starController::class,'index'])->name('stars.index');
+[starController::class,'index'])->middleware(['auth'])->name('stars.index');
 
 Route::get('/Star/{id}',
 [starController::class,'open'])->name('star');
 
 // Route Admin (Ajout, modification et suppression)
 Route::get('/stars/create',
-[starController::class,'create'])->name('stars.create');
+[starController::class,'create'])->middleware(['auth'])->name('stars.create');
 
 Route::post('/stars/store',
-[starController::class,'store'])->name('stars.store');
+[starController::class,'store'])->middleware(['auth'])->name('stars.store');
 
 Route::get('/stars/{id}/edit',
-[starController::class,'edit'])->name('stars.edit');
+[starController::class,'edit'])->middleware(['auth'])->name('stars.edit');
 
 Route::put('/stars/{id}/update',
-[starController::class,'update'])->name('stars.update');
+[starController::class,'update'])->middleware(['auth'])->name('stars.update');
 
 
 Route::get('star/{id}/delete',
-[starController::class,'delete'])->name('stars.delete');
+[starController::class,'delete'])->middleware(['auth'])->name('stars.delete');
 
 
 Route::get('/dashboard', function () {
